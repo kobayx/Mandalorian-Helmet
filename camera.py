@@ -12,3 +12,4 @@ While True:
 	button.wait_for_release()
 	button.wait_for_press()
 	camera.stop_preview()
+	button.wait_for_release()
