@@ -3,12 +3,12 @@ from time import sleep
 from gpiozero import Button
 
 button = Button(17)
-button2 = Button(18)
 
 camera = PiCamera()
-while True:
-  if button.is_pressed:
-		camera.start_preview()
-		camera.annotate_text = ' Night Vision Enabled '
-	if button2.is_pressed:
-		camera.stop_preview()
+While True:
+	button.wait_for_press()
+	camera.start_preview()
+	camera.annotate_text = ' Night Vision Enabled '
+	button.wait_for_release()
+	button.wait_for_press()
+	camera.stop_preview()
